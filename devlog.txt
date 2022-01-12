@@ -1,0 +1,10 @@
+każdy mark jest unikalny dla kazdej karty i trzeba to sprawdzać
+i czy juz takiej karty nie ma na ręce żeby sie nie podwajały
+komenda ruchu w trakcie ataku kolejkowął sie
+cześć efektów przy złapaniu karty
+
+navigation wyszukiwnaie ścieżki dla playera przy prawym przycisku
+enemy rusza sie do playera powoli
+moze floating numbers 
+
+poprawić miejsce lodowania jako kierunek do ostatniego punktu w path
