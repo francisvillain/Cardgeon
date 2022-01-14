@@ -8,3 +8,7 @@ enemy rusza sie do playera powoli
 moze floating numbers 
 
 poprawić miejsce lodowania jako kierunek do ostatniego punktu w path
+
+kolory 
+efekty dla postaci przy złapaniu : speed,  lifesteal, (1 sek niewitki dla króla, waleta)
+efekty przy uderzeniu: slow,, crit, ?

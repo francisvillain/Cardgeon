@@ -18,6 +18,9 @@ func _physics_process(delta):
 	var collider = move_and_collide(direction * velocity * delta)
 	
 	if collider:
+		var col_obj = collider.get_collider()
+		if col_obj.is_in_group("enemy"):
+			col_obj.take_damage(status)
 		self.queue_free()
 		var card = CardFlying.instance()
 		GlobalNode.add_pickup_card(card)

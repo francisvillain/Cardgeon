@@ -3,7 +3,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://enemy/script/Enemy.gd" type="Script" id=3]
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 135
 script = ExtResource( 3 )

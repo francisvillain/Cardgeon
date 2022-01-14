@@ -34,8 +34,8 @@ func move(delta):
 		if collider.is_in_group("player"):
 			collider.take_damage(self,damage, 0)
 
-func take_damage(node, damage, effect):
-	health -= damage
+func take_damage(bullet_status):
+	print("take damage")
 
 func check_death():
 	if health <= 0:
@@ -64,4 +64,3 @@ func check_player_in_detection() -> bool:
 		print("raycast collided")
 		return true
 	return false
-
