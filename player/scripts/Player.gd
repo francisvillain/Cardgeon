@@ -1,24 +1,27 @@
 extends KinematicBody2D
 
+signal change_hp
+
 var current_direction : String
-var health = 2
+var health = 100
 var target_movement_position : Vector2
 
 onready var line = $Line2D
+onready var progress_bar = $Bars/HealthBar
 
 var Cards = []
 
 func _ready():
 	GlobalNode.set_player_node(self)
 	target_movement_position = get_global_position()
+	progress_bar.set_max(health)
+	emit_signal("change_hp", health)
 
 func _physics_process(_delta):
 	line.global_position = Vector2.ZERO
 	look_direction_mouse()
 	check_death()
 	#GlobalNode.set_player_position(get_global_position())
-
-
 
 func look_direction_mouse() -> void:
 	var detect_dir : String
@@ -31,7 +34,6 @@ func look_direction_mouse() -> void:
 		#emit_signal("direction_changed", detect_dir)
 		change_direction(detect_dir)
 		current_direction = detect_dir
-
 
 func change_direction(new_direction : String) -> void:
 
@@ -87,4 +89,3 @@ func get_movement_speed():
 
 func _change_target_position(pos):
 	target_movement_position = pos
-

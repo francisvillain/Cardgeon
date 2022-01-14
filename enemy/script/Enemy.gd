@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-var health = 1
+signal change_hp
+
+var health = 100
 var damage = 0
 var direction = Vector2()
 var target
@@ -11,6 +13,11 @@ var target_detected : bool = false
 
 onready var line = $Line2D
 onready var los = $LineOfSight
+onready var progress_bar = $Bars/HealthBar
+
+func _ready():
+	progress_bar.set_max(health)
+	emit_signal("change_hp", health)
 
 func _physics_process(delta):
 	line.global_position = Vector2.ZERO
@@ -36,6 +43,8 @@ func move(delta):
 
 func take_damage(bullet_status):
 	print("take damage")
+	health -= 10
+	emit_signal("change_hp", health)
 
 func check_death():
 	if health <= 0:

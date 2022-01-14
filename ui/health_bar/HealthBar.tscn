@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/health_bar/HealthBar.gd" type="Script" id=1]
+[ext_resource path="res://ui/health_bar/progress_bar.png" type="Texture" id=2]
+
+[node name="HealthBar" type="TextureProgress"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1268.0
+margin_bottom = -718.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+color_under = Color( 0.145098, 0.0156863, 0.0156863, 1 )
+color_progress = Color( 0.423529, 0.0588235, 0.0588235, 1 )

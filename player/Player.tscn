@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player/scripts/PlayerStateMachine.gd" type="Script" id=1]
 [ext_resource path="res://player/allframes.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://player/scripts/Attack.gd" type="Script" id=6]
 [ext_resource path="res://player/scripts/Player.gd" type="Script" id=7]
 [ext_resource path="res://player/scripts/CardThrower.gd" type="Script" id=8]
+[ext_resource path="res://ui/health_bar/HealthBar.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -136,6 +137,18 @@ script = ExtResource( 8 )
 width = 2.0
 default_color = Color( 0.811765, 0.4, 1, 1 )
 
+[node name="Bars" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" parent="Bars" instance=ExtResource( 9 )]
+margin_left = -6.0
+margin_top = -16.0
+margin_right = -6.0
+margin_bottom = -16.0
+
+[connection signal="change_hp" from="." to="Bars/HealthBar" method="progress_update"]
 [connection signal="throw_card" from="StateMachine/Attack" to="Arm/CardThrower" method="_on_Attack_throw_card"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Die" method="_on_AnimationPlayer_animation_finished"]
