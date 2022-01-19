@@ -134,6 +134,7 @@ position = Vector2( 5.5, 0 )
 script = ExtResource( 8 )
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 width = 2.0
 default_color = Color( 0.811765, 0.4, 1, 1 )
 
@@ -147,6 +148,8 @@ margin_left = -6.0
 margin_top = -16.0
 margin_right = -6.0
 margin_bottom = -16.0
+color_under = Color( 0, 0, 0, 1 )
+color_progress = Color( 0.886275, 0.0392157, 0.0392157, 1 )
 
 [connection signal="change_hp" from="." to="Bars/HealthBar" method="progress_update"]
 [connection signal="throw_card" from="StateMachine/Attack" to="Arm/CardThrower" method="_on_Attack_throw_card"]

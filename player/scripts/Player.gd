@@ -49,11 +49,12 @@ func change_direction(new_direction : String) -> void:
 
 func take_damage(node, damage, effect):
 	health -= damage
+	emit_signal("change_hp", health)
+	check_death()
 
 func check_death():
-	pass
-	#if health <= 0:
-		#GlobalNode.restart()
+	if health <= 0:
+		GlobalNode.restart()
 
 func add_card(status):
 	var ids = []

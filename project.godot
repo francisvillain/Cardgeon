@@ -98,6 +98,7 @@ right_click={
 2d_physics/layer_6="card_landed"
 2d_physics/layer_7="mark"
 2d_physics/layer_8="wall"
+2d_physics/layer_9="enemy hitbox"
 
 [physics]
 

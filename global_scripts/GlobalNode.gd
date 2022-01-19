@@ -129,3 +129,5 @@ func add_cards(n : int):
 		add_card_ui(status)
 		player.Cards.append(status)
 		
+func restart():
+	get_tree().reload_current_scene()

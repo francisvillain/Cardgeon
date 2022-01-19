@@ -3,7 +3,7 @@ extends KinematicBody2D
 signal change_hp
 
 var health = 100
-var damage = 0
+var damage = 10
 var direction = Vector2()
 var target
 var path : Array = []
@@ -39,10 +39,9 @@ func move(delta):
 	if collision_info:
 		var collider = collision_info.get_collider()
 		if collider.is_in_group("player"):
-			collider.take_damage(self,damage, 0)
+			collider.take_damage(self, damage, 0)
 
 func take_damage(bullet_status):
-	print("take damage")
 	health -= 10
 	emit_signal("change_hp", health)
 
@@ -70,6 +69,10 @@ func check_player_in_detection() -> bool:
 	var collider = los.get_collider()
 	if collider and collider.is_in_group("player"):
 		target_detected = true
-		print("raycast collided")
+#		print("raycast collided")
 		return true
 	return false
+
+
+func _on_Hitbox_body_entered(body):
+	self.take_damage(body.status)
