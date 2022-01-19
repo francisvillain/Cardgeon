@@ -23,7 +23,6 @@ func _physics_process(delta):
 		var col_obj = collider.get_collider()
 		if col_obj.is_in_group("enemy"):
 			col_obj.take_damage(status)
-			print(col_obj.get_name())
 		self.queue_free()
 		var card = CardFlying.instance()
 		GlobalNode.add_pickup_card(card)

@@ -58,7 +58,7 @@ func navigate():
 
 func generate_path():
 	var nav = GlobalNode.get_navigation_node()
-	path = nav.get_simple_path(position, target.position, false)
+	path = nav.get_simple_path(position, target.position, true)
 	line.points = path
 
 #func set_target_position(new_direction):
@@ -74,5 +74,3 @@ func check_player_in_detection() -> bool:
 	return false
 
 
-func _on_Hitbox_body_entered(body):
-	self.take_damage(body.status)
