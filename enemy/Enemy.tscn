@@ -5,7 +5,6 @@
 [ext_resource path="res://enemy/script/Enemy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
 
 [node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 2
@@ -21,6 +20,7 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -3, -4, -3, 4, 3, 4, 3, -4 )
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 width = 2.0
 
 [node name="LineOfSight" type="RayCast2D" parent="."]

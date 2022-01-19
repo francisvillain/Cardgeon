@@ -17,6 +17,8 @@ func _physics_process(delta):
 	
 	var collider = move_and_collide(direction * velocity * delta)
 	
+	self.look_at(global_position + direction * velocity)
+	
 	if collider:
 		var col_obj = collider.get_collider()
 		if col_obj.is_in_group("enemy"):
