@@ -45,6 +45,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalNode="*res://global_scripts/GlobalNode.gd"
+DamageCalculator="*res://global_scripts/DamageCalculator.gd"
 
 [display]
 

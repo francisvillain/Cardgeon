@@ -42,7 +42,7 @@ func move(delta):
 			collider.take_damage(self, damage, 0)
 
 func take_damage(bullet_status):
-	health -= 10
+	health -= DamageCalculator.calculate_card_damage(bullet_status)
 	emit_signal("change_hp", health)
 
 func check_death():
