@@ -7,8 +7,10 @@ onready var attack = $Attack
 
 var cards_amount = 5
 var target_position : Vector2
+var r_mouse_pressed : bool
 
 func _ready():
+	r_mouse_pressed = false
 	target_position = owner.get_global_position()
 	states_map = {
 		"idle": idle,
@@ -31,17 +33,26 @@ func _change_state(state_name):
 
 	._change_state(state_name)
 
+func _physics_process(delta):
+	if r_mouse_pressed:
+		get_mouse_data()
+
 func _unhandled_input(event):
 	if event.is_action_pressed("right_click"):
+		r_mouse_pressed = true
+	if event.is_action_released("right_click"):
+		r_mouse_pressed = false
+
+	current_state.handle_input(event)
+
+func get_mouse_data():
 		target_position = owner.get_local_mouse_position() + owner.position
-		
 		if current_state == idle:
 			idle.start_moving()
 		if current_state == attack:
 			states_stack[1] = states_map["move"]
 		if current_state == move:
 			move.emit_signal("change_target_position",owner.get_global_mouse_position())
-	current_state.handle_input(event)
 
 func get_cards_amount():
 	return cards_amount

@@ -104,12 +104,6 @@ current = true
 [node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 191.75, 66.5 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 105.25, 137.25 )
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 223.75, 159 )
-
 [node name="CardPickUp" type="Node2D" parent="."]
 
 [node name="LandedCard" type="Node2D" parent="."]
