@@ -9,6 +9,7 @@ export var velocity : int = 450
 var status = {}
 
 var CardFlying = preload("res://card/CardFlying.tscn")
+var CardFlyingToPlayer = preload("res://card/CardFlyingToPlayer.tscn")
 
 func _ready():
 	pass 
@@ -22,13 +23,18 @@ func _physics_process(delta):
 	if collider:
 		var col_obj = collider.get_collider()
 		if col_obj.is_in_group("enemy"):
-			col_obj.take_damage(status)
+			var card = CardFlying.instance()
+			GlobalNode.add_pickup_card(card)
+			card.set_global_position(self.get_global_position())
+			var target = GlobalNode.get_player_predicted_position(collider.get_collider(), get_global_position())
+			card.launch(target, status)
+		elif col_obj.is_in_group("wall"):
+			var card = CardFlying.instance()
+			GlobalNode.add_pickup_card(card)
+			card.set_global_position(self.get_global_position())
+			var target = GlobalNode.get_player_predicted_position(collider.get_collider(), get_global_position())
+			card.launch(target, status)
 		self.queue_free()
-		var card = CardFlying.instance()
-		GlobalNode.add_pickup_card(card)
-		card.set_global_position(self.get_global_position())
-		var target = GlobalNode.get_player_predicted_position(collider.get_collider(), get_global_position())
-		card.launch(target, status)
 		
 func throw(dir : Vector2):
 	direction = dir

@@ -40,6 +40,8 @@ func get_player_predicted_position(body, bullet_pos):
 
 	predicted_position = movement_status["position"] + movement_status["direction"] * movement_status["speed"] * 1.1
 	
+	#ścieżke do plyera przez nawigacje
+	
 	if check_in_room_predicted_position(predicted_position):
 		predicted_position = movement_status["position"]
 	
@@ -58,12 +60,18 @@ func get_player_predicted_position(body, bullet_pos):
 	
 	return predicted_position
 
+func path_to_point(bullet_pos, point):
+	var nav = get_navigation_node()
+	var path = nav.get_simple_path(bullet_pos, point, true)
+	return global_node.to_global(path[-1])
+
 func check_max_return_range(player_pos, bullet_pos, max_range):
 	var dist = player_pos.distance_to(bullet_pos)
 #	print("dist: ", dist)
 	if dist > max_range:
 		var return_dir  = player_pos.direction_to(bullet_pos).normalized()
 		return bullet_pos - return_dir * max_range
+	return null
 	
 func check_in_room_predicted_position(predicted_position):
 	var room = global_node.get_node("Navigation2D/Room")
