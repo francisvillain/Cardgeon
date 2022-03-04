@@ -12,3 +12,5 @@ poprawić miejsce lodowania jako kierunek do ostatniego punktu w path
 kolory 
 efekty dla postaci przy złapaniu : speed,  lifesteal, (1 sek niewitki dla króla, waleta)
 efekty przy uderzeniu: slow,, crit, ?
+
+test 4.03.2022
